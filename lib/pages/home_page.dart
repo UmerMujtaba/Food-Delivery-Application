@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_description_bar.dart';
 import 'package:food_delivery_app/components/my_sliver_app_bar.dart';
 import 'package:food_delivery_app/components/my_tab_bar.dart';
+import 'package:food_delivery_app/model/food.dart';
 
 import '../components/my_current_location.dart';
 import '../components/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -15,13 +16,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-
   late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController =
+        TabController(length: FoodCategory.values.length, vsync: this);
+    print('Number of Food Categories: ${FoodCategory.values.length}');
   }
 
   @override
@@ -34,8 +36,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) =>
-        [
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
             title: MyTabBar(tabController: _tabController),
             child: Column(
@@ -45,24 +46,14 @@ class _HomePageState extends State<HomePage>
                 Divider(
                   indent: 25,
                   endIndent: 25,
-                  color: Theme
-                      .of(context)
-                      .colorScheme
-                      .secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
 
                 //current location
-                MyCurrentLocation(),
-                Divider(
-                  indent: 25,
-                  endIndent: 25,
-                  color: Theme
-                      .of(context)
-                      .colorScheme
-                      .secondary,
-                ),
+                const MyCurrentLocation(),
 
-                MyDescriptionBar(),
+
+                const MyDescriptionBar(),
                 //desc box
               ],
             ),
@@ -71,17 +62,25 @@ class _HomePageState extends State<HomePage>
         body: TabBarView(
           controller: _tabController,
           children: [
-           ListView.builder(
-             itemCount: 5,
-             itemBuilder: (context,index) => Text('First tab items'),
-           ),
             ListView.builder(
               itemCount: 5,
-              itemBuilder: (context,index) => Text('Second tab items'),
+              itemBuilder: (context, index) => const Text('First tab items'),
             ),
             ListView.builder(
               itemCount: 5,
-              itemBuilder: (context,index) => Text('Third tab items'),
+              itemBuilder: (context, index) => const Text('Second tab items'),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => const Text('Third tab items'),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => const Text('Third tab items'),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => const Text('Third tab items'),
             ),
           ],
         ),
