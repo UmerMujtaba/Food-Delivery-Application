@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_button.dart';
+import 'package:provider/provider.dart';
 
 import '../model/food.dart';
+import '../model/restaurants.dart';
 
 class FoodPage extends StatefulWidget {
   final Food food;
@@ -18,6 +20,20 @@ class FoodPage extends StatefulWidget {
 }
 
 class _FoodPageState extends State<FoodPage> {
+  void addToCart(Food food, Map<Addon, bool> selectedAddons) {
+
+    Navigator.pop(context);
+
+    List<Addon> currentlySelectedAddons = [];
+
+    for (Addon addon in widget.food.availableAddons) {
+      if (widget.selectedAddons[addon] == true) {
+        currentlySelectedAddons.add(addon);
+      }
+    }
+    context.read<Restaurant>().addToCart(food, currentlySelectedAddons);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -113,23 +129,26 @@ class _FoodPageState extends State<FoodPage> {
                     ],
                   ),
                 ),
-                MyButton(text: 'Add to Cart', onTap: () {}),
+                MyButton(
+                  text: 'Add to Cart',
+                  onTap: () => addToCart(widget.food, widget.selectedAddons),
+                ),
 
-                SizedBox(height: 10)
+                const SizedBox(height: 10)
               ],
             ),
           ),
         ),
-        
         SafeArea(
           child: Opacity(
             opacity: 0.6,
             child: Container(
-              margin: EdgeInsets.only(left: 25),
-              decoration: BoxDecoration(color: Theme.of(context).colorScheme.secondary,
-              shape: BoxShape.circle),
+              margin: const EdgeInsets.only(left: 25),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondary,
+                  shape: BoxShape.circle),
               child: IconButton(
-                icon: Icon(Icons.arrow_back_ios_rounded),
+                icon: const Icon(Icons.arrow_back_ios_rounded),
                 onPressed: () {
                   Navigator.pop(context);
                 },

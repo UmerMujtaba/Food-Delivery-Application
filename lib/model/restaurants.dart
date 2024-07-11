@@ -1,14 +1,16 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
+import 'package:food_delivery_app/model/cart_item.dart';
 import 'package:food_delivery_app/model/food.dart';
 
-class Restaurant extends ChangeNotifier{
+class Restaurant extends ChangeNotifier {
   final List<Food> _menu = [
     //burgers list
 
     Food(
       name: "Beef Cheese Burger",
       description:
-      "A juicy beef patty with melted cheddar, lettuce, tomato, and a hint of onion and pickle.",
+          "A juicy beef patty with melted cheddar, lettuce, tomato, and a hint of onion and pickle.",
       imagePath: "lib/images/burgers/burger3.jpeg",
       price: 1.99,
       category: FoodCategory.burgers,
@@ -22,7 +24,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Chicken Cheese Burger",
       description:
-      "A juicy chicken patty with melted cheddar, tomato, and a hint of onion and pickle.",
+          "A juicy chicken patty with melted cheddar, tomato, and a hint of onion and pickle.",
       imagePath: "lib/images/burgers/burger2.jpeg",
       price: 0.99,
       category: FoodCategory.burgers,
@@ -36,7 +38,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Grilled Chicken Burger",
       description:
-      "A juicy grilled chicken patty with lettuce, melted cheddar, tomato, and a hint of onion and pickle.",
+          "A juicy grilled chicken patty with lettuce, melted cheddar, tomato, and a hint of onion and pickle.",
       imagePath: "lib/images/burgers/burger5.jpeg",
       price: 1.50,
       category: FoodCategory.burgers,
@@ -48,12 +50,10 @@ class Restaurant extends ChangeNotifier{
       ],
     ),
 
-
-
     Food(
       name: "Smoked Grill Burger",
       description:
-      "A smoky grilled chicken patty with melted cheddar, tomato, and a hint of onion and pickle.",
+          "A smoky grilled chicken patty with melted cheddar, tomato, and a hint of onion and pickle.",
       imagePath: "lib/images/burgers/burger4.jpeg",
       price: 2.00,
       category: FoodCategory.burgers,
@@ -68,7 +68,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Greek Salad",
       description:
-      "Tomatoes, cucumbers, red onions, olives, with olive oil and herbs.",
+          "Tomatoes, cucumbers, red onions, olives, with olive oil and herbs.",
       imagePath: "lib/images/salads/salad1.jpeg",
       price: 7.00,
       category: FoodCategory.salads,
@@ -82,7 +82,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Russian Salad",
       description:
-      "Creamy salad with Apple, Pineapple, cucumbers, olives, with olive oil and herbs.",
+          "Creamy salad with Apple, Pineapple, cucumbers, olives, with olive oil and herbs.",
       imagePath: "lib/images/salads/salad2.jpeg",
       price: 9.99,
       category: FoodCategory.salads,
@@ -96,7 +96,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Italian Salad",
       description:
-      " Part green salad, part antipasto salad, this recipe combines lettuce, celery, onion, peperoncini, olives, and cherry tomatoes.",
+          " Part green salad, part antipasto salad, this recipe combines lettuce, celery, onion, peperoncini, olives, and cherry tomatoes.",
       imagePath: "lib/images/salads/salad3.jpeg",
       price: 6.50,
       category: FoodCategory.salads,
@@ -109,7 +109,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Fruit Salad",
       description:
-      "Fruit salad is a dish consisting of various kinds of fruit, sometimes served in a liquid, either their juices or a syrup.",
+          "Fruit salad is a dish consisting of various kinds of fruit, sometimes served in a liquid, either their juices or a syrup.",
       imagePath: "lib/images/salads/salad1.jpeg",
       price: 9.99,
       category: FoodCategory.salads,
@@ -124,7 +124,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Potato Fries",
       description:
-      " This French fries recipe is made using a clever, proven cooking method that guarantees crispy fries - and they STAY crispy for ages.",
+          " This French fries recipe is made using a clever, proven cooking method that guarantees crispy fries - and they STAY crispy for ages.",
       price: 2.99,
       imagePath: 'lib/images/sides/fries.jpg',
       category: FoodCategory.sides,
@@ -138,7 +138,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Onion Rings",
       description:
-      " Onion Rings are deliciously crisp, golden and made with just a handful of ingredients. Add them to burgers for a satisfying crunch.",
+          " Onion Rings are deliciously crisp, golden and made with just a handful of ingredients. Add them to burgers for a satisfying crunch.",
       price: 1.99,
       imagePath: 'lib/images/sides/onion.jpg',
       category: FoodCategory.sides,
@@ -174,7 +174,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Coleslaw",
       description:
-      "Fresh and tangy coleslaw made with shredded cabbage and carrots.",
+          "Fresh and tangy coleslaw made with shredded cabbage and carrots.",
       price: 1.49,
       imagePath: 'lib/images/sides/coleslaw.jpg',
       category: FoodCategory.sides,
@@ -238,7 +238,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Chocolate Cake",
       description:
-      "Rich and moist chocolate cake with a creamy chocolate frosting.",
+          "Rich and moist chocolate cake with a creamy chocolate frosting.",
       price: 3.99,
       imagePath: 'lib/images/desserts/dessert2.jpeg',
       category: FoodCategory.deserts,
@@ -275,7 +275,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Ice Cream Sundae",
       description:
-      "Vanilla ice cream sundae topped with chocolate syrup and sprinkles.",
+          "Vanilla ice cream sundae topped with chocolate syrup and sprinkles.",
       price: 3.49,
       imagePath: 'lib/images/desserts/sundae.jpeg',
       category: FoodCategory.deserts,
@@ -284,7 +284,6 @@ class Restaurant extends ChangeNotifier{
         Addon(name: "Extra Sprinkles", price: 0.25),
       ],
     ),
-
 
     Food(
       name: "Cup cake",
@@ -299,34 +298,83 @@ class Restaurant extends ChangeNotifier{
     ),
   ];
 
-
 /*
 G E T T E R S
 */
   List<Food> get menu => _menu;
 
-
 /*
 O P E R A T O R S
-
+*/
 // add to cart
+  final List<CartItem> _cart = [];
 
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      bool isSameFood = item.food == food;
 
+      bool isSameAddons =
+          const ListEquality().equals(item.selectedAddons, selectedAddons);
+
+      return isSameAddons && isSameFood;
+    });
+
+    if (cartItem != null) {
+      cartItem.quantity++;
+    } else {
+      _cart.add(CartItem(
+        food: food,
+        selectedAddons: selectedAddons,
+      ));
+    }
+    notifyListeners();
+  }
 
 // remove from cart
 
+  void removeFromCart(CartItem cartItem) {
+    int cartIndex = _cart.indexOf(cartItem);
 
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
 
 // get total price
+  double getTotalPrice() {
+    double total = 0;
 
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
 
-
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+      total += itemTotal * cartItem.quantity;
+    }
+    return total;
+  }
 
 // get total amount of items
+  int getTotalItemCount() {
+    int totalItemCount = 0;
 
+    for (CartItem cartItem in _cart) {
+      totalItemCount = cartItem.quantity;
+    }
+    return totalItemCount;
+  }
 
-
-*/
+// clear cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
 /*
 H E L P E R S
