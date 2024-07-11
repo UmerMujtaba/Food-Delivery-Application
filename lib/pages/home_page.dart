@@ -36,19 +36,19 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-  //sort out and return a list of food items that belong to a specific categroy
+  //sort out and return a list of food items that belong to a specific category
   List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullMenu) {
     return fullMenu.where((food) => food.category == category).toList();
   }
 
-  //return list of fodds in given category
+  //return list of foods in given category
   List<Widget> getFoodInThisCategory(List<Food> fullMenu) {
     return FoodCategory.values.map((category) {
       List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
 
       return ListView.builder(
           itemCount: categoryMenu.length,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             final food = categoryMenu[index];

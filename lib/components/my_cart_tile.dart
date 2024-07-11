@@ -8,7 +8,7 @@ import '../model/restaurants.dart';
 class MyCartTile extends StatelessWidget {
   final CartItem cartItem;
 
-  const MyCartTile({Key? key, required this.cartItem}) : super(key: key);
+  const MyCartTile({super.key, required this.cartItem});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MyCartTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
           children: [
             Padding(
@@ -31,15 +31,15 @@ class MyCartTile extends StatelessWidget {
                     child: Image.asset(cartItem.food.imagePath,
                         height: 150, width: 100),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(cartItem.food.name),
-                      Text('\$' + cartItem.food.price.toString()),
+                      Text('\$${cartItem.food.price}'),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   MyQuantitySelector(
                     quantity: cartItem.quantity,
                     food: cartItem.food,
@@ -51,7 +51,7 @@ class MyCartTile extends StatelessWidget {
                       restaurant.removeFromCart(cartItem);
                     },
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                 ],
               ),
             ),
@@ -59,16 +59,16 @@ class MyCartTile extends StatelessWidget {
               height: cartItem.selectedAddons.isEmpty ? 0 : 60,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: 10,bottom: 10,right: 10),
+                padding: const EdgeInsets.only(left: 10,bottom: 10,right: 10),
                 children: cartItem.selectedAddons
                     .map(
                       (addon) => Padding(
-                        padding: EdgeInsets.only(right: 8),
+                        padding: const EdgeInsets.only(right: 8),
                         child: FilterChip(
                             label: Row(
                               children: [
                                 Text(addon.name),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text('\$${addon.price}',style: TextStyle(
                                   color: Theme.of(context).colorScheme.primary,
                                 ),),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyCurrentLocation extends StatelessWidget {
-  const MyCurrentLocation({Key? key}) : super(key: key);
+  const MyCurrentLocation({super.key});
 
   void openLocationSearchBox(BuildContext context) {
     showDialog(
@@ -14,11 +14,11 @@ class MyCurrentLocation extends StatelessWidget {
         actions: [
           MaterialButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           MaterialButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Save'),
+            child: const Text('Save'),
           )
         ],
       ),
@@ -48,7 +48,7 @@ class MyCurrentLocation extends StatelessWidget {
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
-                Icon(Icons.keyboard_arrow_down_rounded)
+                const Icon(Icons.keyboard_arrow_down_rounded)
               ],
             ),
           )

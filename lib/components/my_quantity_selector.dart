@@ -4,12 +4,11 @@ import '../model/food.dart';
 
 class MyQuantitySelector extends StatelessWidget {
   const MyQuantitySelector(
-      {Key? key,
+      {super.key,
       required this.quantity,
       required this.food,
       required this.onIncrement,
-      required this.onDecrement})
-      : super(key: key);
+      required this.onDecrement});
 
   final int quantity;
   final Food food;
@@ -23,7 +22,7 @@ class MyQuantitySelector extends StatelessWidget {
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(50),
       ),
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -36,7 +35,7 @@ class MyQuantitySelector extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: SizedBox(
               width: 20,
               child: Center(

@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import '../components/my_cart_tile.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key? key}) : super(key: key);
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class CartPage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: Text('cart'),
+            title: const Text('cart'),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios_rounded),
+              icon: const Icon(Icons.arrow_back_ios_rounded),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -34,7 +34,7 @@ class CartPage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Are you sure you want to clear the cart?'),
+                      title: const Text('Are you sure you want to clear the cart?'),
                       actions: [
                         TextButton(
                             onPressed: () {
@@ -87,7 +87,7 @@ class CartPage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
             ],
           ),
         );

@@ -21,8 +21,8 @@ class SettingsPage extends StatelessWidget {
               color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(12),
             ),
-            margin: EdgeInsets.only(left: 25, top: 10, right: 25),
-            padding: EdgeInsets.all(25),
+            margin: const EdgeInsets.only(left: 25, top: 10, right: 25),
+            padding: const EdgeInsets.all(25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               //dark mode

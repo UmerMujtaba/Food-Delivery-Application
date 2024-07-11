@@ -2,7 +2,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:food_delivery_app/model/cart_item.dart';
 import 'package:food_delivery_app/model/food.dart';
-import 'dart:convert';
 
 import 'package:intl/intl.dart';
 
@@ -99,7 +98,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Italian Salad",
       description:
-          " Part green salad, part antipasto salad, this recipe combines lettuce, celery, onion, peperoncini, olives, and cherry tomatoes.",
+          " Part green salad, part antipasto salad, this recipe combines lettuce, celery, onion, peperoni, olives, and cherry tomatoes.",
       imagePath: "lib/images/salads/salad3.jpeg",
       price: 6.50,
       category: FoodCategory.salads,
@@ -388,7 +387,7 @@ H E L P E R S
 //generate receipts
   String displayCartReceipt() {
     final receipt = StringBuffer();
-    receipt.writeln("Here\'s your receipt.");
+    receipt.writeln("Here's your receipt.");
     receipt.writeln();
 
     String formattedDate =

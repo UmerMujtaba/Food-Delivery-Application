@@ -43,7 +43,7 @@ class _FoodPageState extends State<FoodPage> {
             child: Column(
               children: [
                 //image
-                Container(
+                SizedBox(
                   width: double.infinity,
                   // This makes the image take the full width of the screen
                   height: 380,
