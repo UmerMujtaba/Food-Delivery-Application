@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:food_delivery_app/model/food.dart';
 
-class Restaturant {
+class Restaurant extends ChangeNotifier{
   final List<Food> _menu = [
     //burgers list
 
@@ -47,19 +48,7 @@ class Restaturant {
       ],
     ),
 
-    Food(
-      name: "Krunch Burger",
-      description:
-      "A crunchy chicken burger with  lettuce, tomato, and a hint of onion and pickle.",
-      imagePath: "lib/images/burgers/burger1.jpeg",
-      price: 1.20,
-      category: FoodCategory.burgers,
-      availableAddons: [
-        Addon(name: "Cheese Slice", price: 0.99),
-        Addon(name: "Mustard Sauce", price: 0.50),
-        Addon(name: "Jalapeno", price: 2.00),
-      ],
-    ),
+
 
     Food(
       name: "Smoked Grill Burger",
@@ -137,7 +126,7 @@ class Restaturant {
       description:
       " This French fries recipe is made using a clever, proven cooking method that guarantees crispy fries - and they STAY crispy for ages.",
       price: 2.99,
-      imagePath: 'lib/images/sides/fries.jpeg',
+      imagePath: 'lib/images/sides/fries.jpg',
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: "Grilled Chicken", price: 0.99),
@@ -151,7 +140,7 @@ class Restaturant {
       description:
       " Onion Rings are deliciously crisp, golden and made with just a handful of ingredients. Add them to burgers for a satisfying crunch.",
       price: 1.99,
-      imagePath: 'lib/images/sides/onion.jpeg',
+      imagePath: 'lib/images/sides/onion.jpg',
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: "Grilled Chicken", price: 0.99),
@@ -162,7 +151,7 @@ class Restaturant {
       name: "Mozzarella Sticks",
       description: "Cheesy mozzarella sticks served with marinara sauce.",
       price: 2.49,
-      imagePath: 'lib/images/sides/sticks.jpeg',
+      imagePath: 'lib/images/sides/sticks.jpg',
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: "Extra Cheese", price: 0.50),
@@ -174,7 +163,7 @@ class Restaturant {
       name: "Garlic Bread",
       description: "Crispy garlic bread topped with melted butter and herbs.",
       price: 1.99,
-      imagePath: 'lib/images/sides/garlic.jpeg',
+      imagePath: 'lib/images/sides/garlic.jpg',
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: "Cheese", price: 0.50),
@@ -196,17 +185,7 @@ class Restaturant {
     ),
 
     //drinks
-    Food(
-      name: "Cola",
-      description: "Refreshing cola beverage.",
-      price: 1.29,
-      imagePath: 'lib/images/drinks/drink5.jpeg',
-      category: FoodCategory.drinks,
-      availableAddons: [
-        Addon(name: "Lemon", price: 0.25),
-        Addon(name: "Ice", price: 0.10),
-      ],
-    ),
+
     Food(
       name: "Lemonade",
       description: "Freshly squeezed lemonade.",
@@ -273,7 +252,7 @@ class Restaturant {
       name: "Cheesecake",
       description: "Creamy and smooth cheesecake with a graham cracker crust.",
       price: 4.49,
-      imagePath: 'lib/images/desserts/dessert1.jpeg',
+      imagePath: 'lib/images/desserts/dessert1.jpg',
       category: FoodCategory.deserts,
       availableAddons: [
         Addon(name: "Strawberry Sauce", price: 0.75),
@@ -306,18 +285,6 @@ class Restaturant {
       ],
     ),
 
-    Food(
-      name: "Apple Pie",
-      description:
-      "Classic apple pie with a flaky crust and cinnamon-spiced filling.",
-      price: 3.99,
-      imagePath: 'lib/images/desserts/dessert3.jpeg',
-      category: FoodCategory.deserts,
-      availableAddons: [
-        Addon(name: "Vanilla Ice Cream", price: 1.00),
-        Addon(name: "Caramel Sauce", price: 0.50),
-      ],
-    ),
 
     Food(
       name: "Cup cake",
