@@ -39,6 +39,9 @@ dependencies:
   collection: ^1.18.0
   flutter_credit_card: ^4.0.1
   intl: ^0.19.0
+  geolocator: ^8.2.0
+  geocoding: ^2.0.4
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +72,7 @@ flutter:
       - lib/images/salads/
       - lib/images/drinks/
       - lib/images/sides/
+      - lib/images/lottie/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

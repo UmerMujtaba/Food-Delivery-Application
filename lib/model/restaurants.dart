@@ -410,7 +410,7 @@ H E L P E R S
     receipt.writeln("---------------------------");
     receipt.writeln();
     receipt.writeln("Total Items: ${getTotalItemCount()}");
-    receipt.writeln("Total Price: ${getTotalPrice()}");
+    receipt.writeln("Total Price: \$ ${getTotalPrice()}");
 
     return receipt.toString();
   }

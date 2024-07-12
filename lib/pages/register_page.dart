@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_button.dart';
+import 'package:lottie/lottie.dart';
 
 import '../components/my_text_fields.dart';
 
@@ -12,11 +13,25 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderStateMixin{
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+  late final AnimationController _controller;
+
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +42,27 @@ class _RegisterPageState extends State<RegisterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(
-              Icons.lock_open_rounded,
-              size: 100,
-              color: Theme.of(context).colorScheme.inversePrimary,
+            Lottie.asset(
+              'lib/images/lottie/trucknew.json',
+              height: 150,
+              controller: _controller,
+              onLoaded: (comp) {
+                _controller.duration = comp.duration;
+                _controller.forward();
+                _controller.repeat();
+              },
             ),
 
             //message, app slogans
             Text(
               'Let\'s create an account for you',
               style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).colorScheme.inversePrimary),
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
             ),
 
-            const SizedBox(
-              height: 25,
-            ),
+            const SizedBox(height: 25),
             //email text field
             MyTextfields(
               controller: emailController,
@@ -52,18 +71,14 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
 
             //password textfield
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             //email text field
             MyTextfields(
               controller: passwordController,
               hintText: 'Password',
               obscureText: true,
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
 
             MyTextfields(
               controller: confirmPasswordController,
@@ -72,17 +87,13 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
 
             //password textfield
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             //sign in button
             MyButton(
               text: 'Sign up',
               onTap: () {},
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             //already have an account ? login here
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -93,9 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
-                const SizedBox(
-                  width: 4,
-                ),
+                const SizedBox(width: 4),
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text('Login now',

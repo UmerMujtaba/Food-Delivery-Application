@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 
-class MyCurrentLocation extends StatelessWidget {
+class MyCurrentLocation extends StatefulWidget {
   const MyCurrentLocation({super.key});
 
+  @override
+  _MyCurrentLocationState createState() => _MyCurrentLocationState();
+}
+
+class _MyCurrentLocationState extends State<MyCurrentLocation> {
+  String _location = '6901 Hollywood Blv';
+  final TextEditingController _controller = TextEditingController();
+
   void openLocationSearchBox(BuildContext context) {
+    _controller.text = _location; // Set current location as initial value
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Your Location'),
-        content: const TextField(
-          decoration: InputDecoration(hintText: 'Search address...'),
+        content: TextField(
+          controller: _controller,
+          decoration: const InputDecoration(hintText: 'Search address...'),
         ),
         actions: [
           MaterialButton(
@@ -17,7 +28,14 @@ class MyCurrentLocation extends StatelessWidget {
             child: const Text('Cancel'),
           ),
           MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              setState(
+                () {
+                  _location = _controller.text;
+                },
+              );
+              Navigator.pop(context);
+            },
             child: const Text('Save'),
           )
         ],
@@ -43,7 +61,7 @@ class MyCurrentLocation extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  '6901 Hollywood Blv',
+                  _location,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -51,7 +69,8 @@ class MyCurrentLocation extends StatelessWidget {
                 const Icon(Icons.keyboard_arrow_down_rounded)
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 10),
         ],
       ),
     );

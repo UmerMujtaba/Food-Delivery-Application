@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/components/my_button.dart';
 import 'package:food_delivery_app/components/my_text_fields.dart';
+import 'package:lottie/lottie.dart';
 
 import 'home_page.dart';
 
@@ -13,17 +14,32 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  late final AnimationController _controller;
 
   void login() {
 /*
 fill out authentication here
 */
-
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -35,10 +51,15 @@ fill out authentication here
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(
-              Icons.lock_open_rounded,
-              size: 100,
-              color: Theme.of(context).colorScheme.inversePrimary,
+            Lottie.asset(
+              'lib/images/lottie/trucknew.json',
+              height: 150,
+              controller: _controller,
+              onLoaded: (comp) {
+                _controller.duration = comp.duration;
+                _controller.forward();
+                _controller.repeat();
+              },
             ),
 
             //message, app slogans
@@ -77,7 +98,7 @@ fill out authentication here
               text: 'Sign In',
               onTap: () {
                 login();
-                },
+              },
             ),
             const SizedBox(
               height: 30,

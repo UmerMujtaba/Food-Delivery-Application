@@ -16,9 +16,10 @@ class CartPage extends StatelessWidget {
         final userCart = restaurant.cart;
 
         return Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.surface,
           appBar: AppBar(
             centerTitle: true,
-            title: const Text('cart'),
+            title: const Text('Cart'),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             leading: IconButton(

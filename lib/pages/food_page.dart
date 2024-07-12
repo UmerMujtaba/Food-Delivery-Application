@@ -121,7 +121,10 @@ class _FoodPageState extends State<FoodPage> {
                                 ),
                                 value: widget.selectedAddons[addon],
                                 onChanged: (bool? value) {
-                                  widget.selectedAddons[addon] = value!;
+                                  setState(() {
+                                    widget.selectedAddons[addon] = value!;
+                                  });
+
                                 },
                               );
                             }),
