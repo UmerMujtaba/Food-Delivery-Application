@@ -1,8 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:foodalix/components/my_button.dart';
+import 'package:foodalix/config.dart';
+import 'package:foodalix/pages/home_page.dart';
+import 'package:foodalix/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../components/my_text_fields.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -13,18 +19,64 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderStateMixin{
+class _RegisterPageState extends State<RegisterPage>
+    with SingleTickerProviderStateMixin {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   late final AnimationController _controller;
-
+  bool isNotValid = false;
 
   @override
   void initState() {
     _controller = AnimationController(vsync: this);
+
     super.initState();
   }
+
+
+
+  void registerUser() async {
+    if (emailController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty &&
+        confirmPasswordController.text.isNotEmpty) {
+      var regBody = {
+        'email': emailController.text,
+        'password': passwordController.text,
+      };
+
+      try {
+        var response = await http.post(
+          Uri.parse(register), // Adjust URL if necessary
+          headers: {"Content-Type": "application/json"},
+          body: jsonEncode(regBody),
+        );
+
+        print('Response status: ${response.statusCode}');
+        print('Response body: ${response.body}');
+
+        var jsonResponse = jsonDecode(response.body);
+        print(jsonResponse['status']);
+
+        if (jsonResponse['status']) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage(onTap: widget.onTap)));
+        } else {
+          print('Something went wrong');
+        }
+      } catch (e) {
+        print('Error registering user: $e');
+        // Handle error as needed
+      }
+    } else {
+      setState(() {
+        isNotValid = true;
+        print('Email and password are required.');
+      });
+    }
+  }
+
 
   @override
   void dispose() {
@@ -32,10 +84,10 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
@@ -91,7 +143,9 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
             //sign in button
             MyButton(
               text: 'Sign up',
-              onTap: () {},
+              onTap: () {
+                registerUser();
+              },
             ),
             const SizedBox(height: 30),
             //already have an account ? login here

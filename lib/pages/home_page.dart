@@ -12,7 +12,8 @@ import '../components/my_drawer.dart';
 import '../model/restaurants.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final token;
+  const HomePage({super.key, required this.token});
 
   @override
   State<HomePage> createState() => _HomePageState();
