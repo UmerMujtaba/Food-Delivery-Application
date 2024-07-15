@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_button.dart';
-import 'package:food_delivery_app/model/restaurants.dart';
-import 'package:food_delivery_app/pages/payment_page.dart';
+import 'package:foodalix/components/my_button.dart';
+import 'package:foodalix/model/restaurants.dart';
+import 'package:foodalix/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 import '../components/my_cart_tile.dart';

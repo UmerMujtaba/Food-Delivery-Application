@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:food_delivery_app/model/cart_item.dart';
-import 'package:food_delivery_app/model/food.dart';
+import 'package:foodalix/model/cart_item.dart';
+import 'package:foodalix/model/food.dart';
 
 import 'package:intl/intl.dart';
 

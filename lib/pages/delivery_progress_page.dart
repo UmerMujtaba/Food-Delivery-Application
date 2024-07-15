@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_receipt.dart';
+import 'package:foodalix/components/my_receipt.dart';
 
 class DeliveryProgressPage extends StatelessWidget {
   const DeliveryProgressPage({super.key});

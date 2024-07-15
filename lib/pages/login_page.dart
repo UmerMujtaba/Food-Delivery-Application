@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_button.dart';
-import 'package:food_delivery_app/components/my_text_fields.dart';
+import 'package:foodalix/components/my_button.dart';
+import 'package:foodalix/components/my_text_fields.dart';
 import 'package:lottie/lottie.dart';
 
 import 'home_page.dart';

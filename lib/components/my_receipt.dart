@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/model/restaurants.dart';
+import 'package:foodalix/model/restaurants.dart';
 import 'package:provider/provider.dart';
 
 class MyReceipt extends StatelessWidget {

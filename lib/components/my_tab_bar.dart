@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/model/food.dart';
+import 'package:foodalix/model/food.dart';
 
 class MyTabBar extends StatelessWidget {
   const MyTabBar({super.key, required this.tabController});
