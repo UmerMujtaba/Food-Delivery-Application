@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/themes/theme_provider.dart';
+import 'package:foodalix/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -21,8 +21,8 @@ class SettingsPage extends StatelessWidget {
               color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(12),
             ),
-            margin: EdgeInsets.only(left: 25, top: 10, right: 25),
-            padding: EdgeInsets.all(25),
+            margin: const EdgeInsets.only(left: 25, top: 10, right: 25),
+            padding: const EdgeInsets.all(25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               //dark mode

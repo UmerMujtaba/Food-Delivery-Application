@@ -1,4 +1,4 @@
-name: food_delivery_app
+name: foodalix
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,6 +39,13 @@ dependencies:
   collection: ^1.18.0
   flutter_credit_card: ^4.0.1
   intl: ^0.19.0
+  geolocator: ^8.2.0
+  geocoding: ^2.0.4
+  lottie: ^3.1.2
+  google_maps_flutter: ^2.7.0
+  shared_preferences: ^2.2.3
+  jwt_decoder: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +76,7 @@ flutter:
       - lib/images/salads/
       - lib/images/drinks/
       - lib/images/sides/
+      - lib/images/lottie/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

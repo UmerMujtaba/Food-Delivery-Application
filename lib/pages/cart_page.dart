@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_button.dart';
-import 'package:food_delivery_app/model/restaurants.dart';
-import 'package:food_delivery_app/pages/payment_page.dart';
+import 'package:foodalix/components/my_button.dart';
+import 'package:foodalix/model/restaurants.dart';
+import 'package:foodalix/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 import '../components/my_cart_tile.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key? key}) : super(key: key);
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +16,14 @@ class CartPage extends StatelessWidget {
         final userCart = restaurant.cart;
 
         return Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.surface,
           appBar: AppBar(
             centerTitle: true,
-            title: Text('cart'),
+            title: const Text('Cart'),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios_rounded),
+              icon: const Icon(Icons.arrow_back_ios_rounded),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -34,7 +35,7 @@ class CartPage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Are you sure you want to clear the cart?'),
+                      title: const Text('Are you sure you want to clear the cart?'),
                       actions: [
                         TextButton(
                             onPressed: () {
@@ -87,7 +88,7 @@ class CartPage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
             ],
           ),
         );

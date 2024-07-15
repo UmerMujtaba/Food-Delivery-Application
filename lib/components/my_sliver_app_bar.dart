@@ -17,7 +17,7 @@ class MySliverAppBar extends StatelessWidget {
       pinned: true,
       actions: [
         IconButton(
-          icon: Icon(Icons.shopping_cart),
+          icon: const Icon(Icons.shopping_cart),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context)
             =>
@@ -34,15 +34,16 @@ class MySliverAppBar extends StatelessWidget {
           .of(context)
           .colorScheme
           .inversePrimary,
-      title: Text('Sunset Dinner'),
+      title: const Text('Food Alix'),
+      centerTitle: true,
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
-          padding: EdgeInsets.only(bottom: 50),
+          padding: const EdgeInsets.only(bottom: 50),
           child: child,
         ),
         centerTitle: true,
         title: title,
-        titlePadding: EdgeInsets.only(left: 0, right: 0, top: 0),
+        titlePadding: const EdgeInsets.only(left: 0, right: 0, top: 0),
         expandedTitleScale: 1,
       ),
     );

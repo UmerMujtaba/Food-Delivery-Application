@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:food_delivery_app/components/my_button.dart';
+import 'package:foodalix/components/my_button.dart';
 
 import 'delivery_progress_page.dart';
 
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({Key? key}) : super(key: key);
+  const PaymentPage({super.key});
 
   @override
   State<PaymentPage> createState() => _PaymentPageState();
@@ -28,7 +27,7 @@ class _PaymentPageState extends State<PaymentPage> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                title: Text('Confirm Payment'),
+                title: const Text('Confirm Payment'),
                 content: SingleChildScrollView(
                   child: ListBody(
                     children: [
@@ -73,7 +72,7 @@ class _PaymentPageState extends State<PaymentPage> {
         title: const Text('Checkout'),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -106,14 +105,14 @@ class _PaymentPageState extends State<PaymentPage> {
               },
               formKey: formKey),
 
-          Spacer(),
+          const Spacer(),
 
           MyButton(
             text: 'Pay Now',
             onTap: userTappedPay,
           ),
 
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
         ],
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_description_bar.dart';
-import 'package:food_delivery_app/components/my_food_tile.dart';
-import 'package:food_delivery_app/components/my_sliver_app_bar.dart';
-import 'package:food_delivery_app/components/my_tab_bar.dart';
-import 'package:food_delivery_app/model/food.dart';
-import 'package:food_delivery_app/pages/food_page.dart';
+import 'package:foodalix/components/my_description_bar.dart';
+import 'package:foodalix/components/my_food_tile.dart';
+import 'package:foodalix/components/my_sliver_app_bar.dart';
+import 'package:foodalix/components/my_tab_bar.dart';
+import 'package:foodalix/model/food.dart';
+import 'package:foodalix/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 import '../components/my_current_location.dart';
@@ -12,7 +12,8 @@ import '../components/my_drawer.dart';
 import '../model/restaurants.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final token;
+  const HomePage({super.key, required this.token});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -36,19 +37,19 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-  //sort out and return a list of food items that belong to a specific categroy
+  //sort out and return a list of food items that belong to a specific category
   List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullMenu) {
     return fullMenu.where((food) => food.category == category).toList();
   }
 
-  //return list of fodds in given category
+  //return list of foods in given category
   List<Widget> getFoodInThisCategory(List<Food> fullMenu) {
     return FoodCategory.values.map((category) {
       List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
 
       return ListView.builder(
           itemCount: categoryMenu.length,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             final food = categoryMenu[index];

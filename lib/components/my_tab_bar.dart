@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/model/food.dart';
+import 'package:foodalix/model/food.dart';
 
 class MyTabBar extends StatelessWidget {
   const MyTabBar({super.key, required this.tabController});
@@ -16,7 +16,7 @@ class MyTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: TabBar(
         controller: tabController,
         tabs: _buildCategoryTabs(),

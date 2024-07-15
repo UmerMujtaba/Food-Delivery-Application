@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../model/food.dart';
 
 class FoodTile extends StatelessWidget {
-  const FoodTile({Key? key, required this.food, this.onTap}) : super(key: key);
+  const FoodTile({super.key, required this.food, this.onTap});
 
   final Food food;
   final void Function()? onTap;
@@ -24,7 +24,7 @@ class FoodTile extends StatelessWidget {
                       //text food details
                       Text(food.name),
                       Text(
-                        '\$' + food.price.toString(),
+                        '\$${food.price}',
                         style: TextStyle(
                             color: Theme.of(context).colorScheme.primary),
                       ),

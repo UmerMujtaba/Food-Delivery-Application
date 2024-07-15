@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_receipt.dart';
+import 'package:foodalix/components/my_receipt.dart';
 
 class DeliveryProgressPage extends StatelessWidget {
-  const DeliveryProgressPage({Key? key}) : super(key: key);
+  const DeliveryProgressPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text('Delivery is in progress..'),
+        title: const Text('Delivery is in progress..'),
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         centerTitle: true,
       ),
-      body: Column(
+      body: const Column(
         children: [
           MyReceipt(),
         ],
@@ -45,11 +46,11 @@ class DeliveryProgressPage extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: Icon(Icons.person),
+                icon: const Icon(Icons.person),
                 onPressed: () {},
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -68,7 +69,7 @@ class DeliveryProgressPage extends StatelessWidget {
                 )
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 //message button
@@ -85,7 +86,7 @@ class DeliveryProgressPage extends StatelessWidget {
                     onPressed: () {},
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 //call button
                 Container(
                   decoration: BoxDecoration(
@@ -93,7 +94,7 @@ class DeliveryProgressPage extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.call,
                       color: Colors.green,
                     ),

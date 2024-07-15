@@ -17,7 +17,7 @@ class Food {
   });
 }
 
-enum FoodCategory { burgers, salads, sides, deserts, drinks }
+enum FoodCategory { Burgers, Salads, Sides, Deserts, Drinks }
 
 class Addon {
   String name;

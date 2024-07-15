@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/components/my_button.dart';
+import 'package:foodalix/components/my_button.dart';
 import 'package:provider/provider.dart';
 
 import '../model/food.dart';
@@ -43,7 +43,7 @@ class _FoodPageState extends State<FoodPage> {
             child: Column(
               children: [
                 //image
-                Container(
+                SizedBox(
                   width: double.infinity,
                   // This makes the image take the full width of the screen
                   height: 380,
@@ -121,7 +121,10 @@ class _FoodPageState extends State<FoodPage> {
                                 ),
                                 value: widget.selectedAddons[addon],
                                 onChanged: (bool? value) {
-                                  widget.selectedAddons[addon] = value!;
+                                  setState(() {
+                                    widget.selectedAddons[addon] = value!;
+                                  });
+
                                 },
                               );
                             }),
